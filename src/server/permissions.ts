@@ -24,7 +24,6 @@ export async function canAccessAnalytics(userId: string | null) {
 export async function canCreateProduct(userId: string | null) {
   if (userId == null) return false;
 
-  return true;
   const tier = await getUserSubscriptionTier(userId);
   const productCount = await getProductCount(userId);
   return productCount < tier.maxNumberOfProducts;
